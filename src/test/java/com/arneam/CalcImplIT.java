@@ -1,6 +1,5 @@
 package com.arneam;
 
-import com.sun.xml.internal.ws.transport.http.client.HttpTransportPipe;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -35,13 +34,18 @@ public class CalcImplIT {
         /* in order to print request and response data, you can turn
             HttpTransportPipe.dump on. There are some ways to do this:
             use one of the following properties (depending on java version),
-            or set the boolean attribute directly */
+            or set the boolean attribute directly (however, it is considered
+            a bad practice to call 'sun' packages directly, according to
+            http://www.oracle.com/technetwork/java/faq-sun-packages-142232.html */
 
+        // choose the right property:
         // System.setProperty("com.sun.xml.ws.transport.http.client.HttpTransportPipe.dump", "true");
-        // System.setProperty("com.sun.xml.internal.ws.transport.http.client.HttpTransportPipe.dump", "true");
+        System.setProperty("com.sun.xml.internal.ws.transport.http.client.HttpTransportPipe.dump", "true");
         // System.setProperty("com.sun.xml.ws.transport.http.HttpAdapter.dump", "true");
         // System.setProperty("com.sun.xml.internal.ws.transport.http.HttpAdapter.dump", "true");
-        HttpTransportPipe.dump = true;
+
+        // bad practice, but here it goes:
+        //HttpTransportPipe.dump = true;
     }
 
     private void loadEndpoint() {
