@@ -1,4 +1,7 @@
 
+
+[![Build Status](https://travis-ci.org/medeiros/simplest-jaxws-ever.svg?branch=master)](https://travis-ci.org/medeiros/simplest-jaxws-ever)
+
 # Simplest JaxWS ever
 
 This is a basic application which implements a calculator in order to demonstrate a simplest use of JaxWS to expose REST services. There is a integrated test to validate it all, making use of Java HTTP Server (com.sun.net.httpserver), in a way that the REST operations can be tested without any additional framework.
